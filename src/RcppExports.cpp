@@ -169,6 +169,20 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+
+// cvmat_create
+XPtrMat cvmat_create(int width, int height);
+RcppExport SEXP _opencv_cvmat_create(SEXP widthSEXP, SEXP heightSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< int >::type width(widthSEXP);
+    Rcpp::traits::input_parameter< int >::type height(heightSEXP);
+    rcpp_result_gen = Rcpp::wrap(cvmat_create(width, height));
+    return rcpp_result_gen;
+END_RCPP
+}
+
 // cvmat_raw_bgr
 XPtrMat cvmat_raw_bgr(Rcpp::RawVector image, int width, int height);
 RcppExport SEXP _opencv_cvmat_raw_bgr(SEXP imageSEXP, SEXP widthSEXP, SEXP heightSEXP) {
@@ -498,6 +512,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_opencv_cvkeypoints_harris", (DL_FUNC) &_opencv_cvkeypoints_harris, 6},
     {"_opencv_cvmat_hog", (DL_FUNC) &_opencv_cvmat_hog, 1},
     {"_opencv_cvmat_markers", (DL_FUNC) &_opencv_cvmat_markers, 1},
+    {"_opencv_cvmat_create", (DL_FUNC) &_opencv_cvmat_create, 2},
     {"_opencv_cvversion", (DL_FUNC) &_opencv_cvversion, 0},
     {NULL, NULL, 0}
 };

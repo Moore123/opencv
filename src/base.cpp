@@ -56,6 +56,11 @@ XPtrMat cvmat_new(){
   return cvmat_xptr(frame);
 }
 
+XPtrMat cvmat_create(int rows,int cols){
+    cv::Mat img = cv::Mat::zeros(rows,cols,CV_8UC3);
+    return cvmat_xptr(img);
+}
+
 // [[Rcpp::export]]
 XPtrMat cvmat_dupe(XPtrMat image){
   return cvmat_xptr(get_mat(image));

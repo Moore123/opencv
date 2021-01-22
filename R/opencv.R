@@ -40,6 +40,13 @@ ocv_read <- function(path){
 #' @export
 #' @rdname opencv
 #' @param image an ocv image object
+ocv_new<- function(){
+  return(cvmat_new())
+}
+
+#' @export
+#' @rdname opencv
+#' @param image an ocv image object
 ocv_write <- function(image, path){
   path <- normalizePath(path, mustWork = FALSE)
   cvmat_write(image, path)
@@ -88,6 +95,14 @@ ocv_picture <- function(){
 #' @param height output height in pixels
 ocv_resize <- function(image, width = 0, height = 0){
   cvmat_resize(image, as.integer(width), as.integer(height))
+}
+
+#' @export
+#' @rdname opencv
+#' @param width output width in pixels
+#' @param height output height in pixels
+ocv_create<- function( width = 0, height = 0){
+  cvmat_create(as.integer(width), as.integer(height))
 }
 
 #' @export

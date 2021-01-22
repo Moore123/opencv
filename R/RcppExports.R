@@ -37,6 +37,10 @@ cvmat_new <- function() {
     .Call('_opencv_cvmat_new', PACKAGE = 'opencv')
 }
 
+cvmat_create <- function(width = 0L, height = 0L) {
+    .Call('_opencv_cvmat_create', PACKAGE = 'opencv', width, height)
+}
+
 cvmat_dupe <- function(image) {
     .Call('_opencv_cvmat_dupe', PACKAGE = 'opencv', image)
 }
